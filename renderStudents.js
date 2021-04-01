@@ -1,8 +1,18 @@
 
 function renderStudents(students) {
+    let studentsHTML = students.map(student => {
+        return `
+            <div style="background-color: ${student.isPresent ? "#80dd80" : "red"}; padding: 1rem; margin-bottom: 2rem">
+              <h1>${student.name}</h1>
+              <h2>${student.isPresent ? "Present" : "Absent"}</h2>
+            </div>
+        `;
+    });
+
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(students)}</code>
+        <div style="text-align: center; width: 27%; align-items: center; margin: 0 auto;">
+            <h1>Roll Call!</h1>
+            ${studentsHTML.join('')}
         </div>
     `
 }
